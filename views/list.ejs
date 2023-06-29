@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+  </head>
+  <body>
+    <!-- It is mandatory to create ejs files inside "views" directory -->
+
+    <h1><%= kindOfDay %></h1>
+
+    <ul>
+      <li>Buy Food</li>
+      <li>Cook Food</li>
+      <li>Eat Food</li>
+      <% for(let i = 0; i < newItems.length; i++) { %>
+      <li><%= newItems[i] %></li>
+      <% } %>
+    </ul>
+
+    <form action="/" method="post">
+      <input type="text" name="todo" />
+      <button type="submit" name="button">Add</button>
+    </form>
+  </body>
+</html>
