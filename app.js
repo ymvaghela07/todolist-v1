@@ -3,21 +3,21 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-var todoItems = [];
+let todoItems = ["Buy Food", "Cook Food", "Eat Food"];
 
 app.set("view engine", "ejs"); //this tells our app to use EJS as "view engine"
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
-  var today = new Date();
+  let today = new Date();
 
-  var options = {
+  let options = {
     weekday: "long",
     day: "numeric",
     month: "long",
   };
 
-  var day = today.toLocaleDateString("en-IN", options);
+  let day = today.toLocaleDateString("en-IN", options);
 
   res.render("list", {
     kindOfDay: day,
@@ -26,7 +26,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/", function (req, res) {
-  var item = req.body.todo;
+  let item = req.body.todo;
   todoItems.push(item);
 
   res.redirect("/");
