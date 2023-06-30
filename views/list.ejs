@@ -3,22 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>To-do list</title>
   </head>
   <body>
     <!-- It is mandatory to create ejs files inside "views" directory -->
 
-    <h1><%= kindOfDay %></h1>
+    <div class="box">
+      <h1 id="heading"><%= kindOfDay %></h1>
+    </div>
 
-    <ul>
-      <% for(let i = 0; i < newItems.length; i++) { %>
-      <li><%= newItems[i] %></li>
-      <% } %>
-    </ul>
+    <div class="box">
+      <ul>
+        <% for(let i = 0; i < newItems.length; i++) { %>
+        <div class="item">
+          <input type="checkbox" />
+          <p><%= newItems[i] %></p>
+        </div>
+        <% } %>
+      </ul>
 
-    <form action="/" method="post">
-      <input type="text" name="todo" />
-      <button type="submit" name="button">Add</button>
-    </form>
+      <form class="item" action="/" method="post">
+        <input
+          type="text"
+          name="todo"
+          placeholder="New Item"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit" name="button">+</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -7,6 +7,7 @@ let todoItems = ["Buy Food", "Cook Food", "Eat Food"];
 
 app.set("view engine", "ejs"); //this tells our app to use EJS as "view engine"
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   let today = new Date();
